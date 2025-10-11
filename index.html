@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colégio Viritas - Educar com Verdade e Valores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #1E3A8A;
+            --secondary: #F59E0B;
+            --accent: #10B981;
+            --light: #F0F9FF;
+            --dark: #1E293B;
+            --earth: #92400E;
+            --sun: #FBBF24;
+            --sky: #0EA5E9;
+            --gradient: linear-gradient(135deg, #1E3A8A 0%, #0EA5E9 100%);
+            --gradient-sun: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+            --gradient-earth: linear-gradient(135deg, #92400E 0%, #F59E0B 100%);
+        }
+
+        body {
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 30px rgba(37, 211, 102, 0.8);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        /* Header Mobile */
+        header {
+            background: var(--primary);
+            color: white;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border-bottom: 3px solid var(--secondary);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .logo-icon {
+            color: var(--secondary);
+            font-size: 1.6rem;
+        }
+
+        .header-badge {
+            background: var(--gradient-sun);
+            color: var(--dark);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Hero Section Mobile */
+        .hero {
+            padding: 140px 0 50px;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            background: var(--gradient-sun);
+            color: var(--dark);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(245, 158, 11, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            line-height: 1.3;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            gap: 10px;
+        }
+
+        .stat {
+            text-align: center;
+            flex: 1;
+            background: rgba(255,255,255,0.15);
+            padding: 15px 10px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .stat-text {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            display: block;
+            background: var(--gradient-sun);
+            color: var(--dark);
+            padding: 18px 30px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            margin: 25px auto;
+            width: 90%;
+            max-width: 320px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+            font-weight: 800;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .section-title.light {
+            color: white;
+        }
+
+        .section-title.light::after {
+            background: var(--secondary);
+        }
+
+        /* Values Section */
+        .values {
+            background: var(--light);
+            text-align: center;
+        }
+
+        .values-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .values-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .values-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .values-list {
+            list-style: none;
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .values-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: relative;
+            padding-left: 35px;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .values-list li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+        }
+
+        /* Etiqueta Section */
+        .etiqueta {
+            background: var(--primary);
+            color: white;
+        }
+
+        .etiqueta-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px 25px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .etiqueta-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .etiqueta-features {
+            list-style: none;
+        }
+
+        .etiqueta-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            padding-left: 35px;
+            font-weight: 600;
+        }
+
+        .etiqueta-features li:before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.3rem;
+        }
+
+        /* Tecnologia Section */
+        .tecnologia {
+            background: var(--light);
+            text-align: center;
+        }
+
+        .tecnologia-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            border-top: 5px solid var(--sky);
+        }
+
+        .tecnologia-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--sky);
+        }
+
+        /* Fora da Caixa Section */
+        .fora-caixa {
+            background: var(--gradient-earth);
+            color: white;
+        }
+
+        .caixa-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px 25px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Lema Section */
+        .lema {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .lema-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .lema-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        /* Publicidade Section */
+        .publicidade {
+            background: var(--light);
+            text-align: center;
+        }
+
+        .publicidade-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            border-right: 5px solid var(--accent);
+        }
+
+        /* Form Section */
+        .form-section {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .form-card {
+            background: rgba(255,255,255,0.15);
+            padding: 30px 25px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .submit-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--gradient-sun);
+            color: var(--dark);
+            padding: 18px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(245, 158, 11, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 25px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Mobile Optimizations */
+        @media (max-width: 480px) {
+            .container {
+                width: 92%;
+                padding: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .stat {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .stat-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* African Pattern */
+        .african-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%23F59E0B' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/258851760874?text=Olá! Gostaria de mais informações sobre o Colégio Viritas" 
+       class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-seedling logo-icon"></i>
+                    Colégio<span>Viritas</span>
+                </div>
+                <div class="header-badge">VALORES</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">EDUCAÇÃO COM VALORES</div>
+                <h1>EDUCAR COM VERDADE E VALORES</h1>
+                <p>Formamos corações e mentes na verdade, preparando o aluno a viver com sabedoria, respeito e amor à pátria.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">VALORES</span>
+                        <span class="stat-text">Éticos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">EDUCAÇÃO</span>
+                        <span class="stat-text">Integral</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-text">Dedicados</span>
+                    </div>
+                </div>
+                
+                <a href="#form-section" class="cta-button" id="reservar-vaga-btn">RESERVAR MINHA VAGA</a>
+            </div>
+        </div>
+        <div class="african-pattern"></div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+        <div class="container">
+            <h2 class="section-title">ESCOLA DE VALORES</h2>
+            
+            <div class="values-card">
+                <div class="values-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 style="margin-bottom: 20px; color: var(--primary);">VALORES FUNDAMENTAIS</h3>
+                <ul class="values-list">
+                    <li>Honestidade</li>
+                    <li>Integridade</li>
+                    <li>Empatia</li>
+                    <li>Responsabilidade</li>
+                    <li>Amor ao Próximo</li>
+                </ul>
+            </div>
+            
+            <div class="values-card">
+                <div class="values-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <h3 style="margin-bottom: 20px; color: var(--primary);">EDUCAÇÃO CÍVICA E MORAL</h3>
+                <p>Saber estar e ser na comunidade: responsabilidade, patriotismo, pensar no próximo e não só em si.</p>
+            </div>
+            
+            <div class="values-card">
+                <div class="values-icon">
+                    <i class="fas fa-bible"></i>
+                </div>
+                <h3 style="margin-bottom: 20px; color: var(--primary);">PRINCÍPIOS BÍBLICOS</h3>
+                <p>Princípios bíblicos, Princípios de fé, Amor, Verdade e Liberdade: "Conhecereis a verdade e a verdade vos libertará".</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Etiqueta Section -->
+    <section class="etiqueta">
+        <div class="container">
+            <h2 class="section-title light">ETIQUETA E BOAS MANEIRAS</h2>
+            
+            <div class="etiqueta-card">
+                <h3 class="etiqueta-title">DESENVOLVIMENTO PESSOAL</h3>
+                <ul class="etiqueta-features">
+                    <li>Arrumar a cama</li>
+                    <li>Sentar à mesa</li>
+                    <li>Saudar educadamente</li>
+                    <li>Respeitar os mais velhos</li>
+                    <li>Cuidar dos seus pertences</li>
+                </ul>
+                <p style="margin-top: 20px; font-weight: 600; text-align: center;">
+                    👉 Convidamos mentores para dar palestras de desenvolvimento pessoal
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tecnologia Section -->
+    <section class="tecnologia">
+        <div class="container">
+            <h2 class="section-title">HABILIDADES TECNOLÓGICAS</h2>
+            
+            <div class="tecnologia-card">
+                <div class="tecnologia-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3 style="margin-bottom: 20px; color: var(--primary);">TECNOLOGIA EDUCACIONAL</h3>
+                <ul class="values-list">
+                    <li>Informática</li>
+                    <li>Quadros modernos</li>
+                    <li>Projeção de Vídeos de Aulas</li>
+                    <li>Uso e ensino de tecnologias de acordo com idade e nível das classes</li>
+                </ul>
+                <p style="margin-top: 20px; font-weight: 600; text-align: center;">
+                    👉 Não será dada todos os dias - Uso equilibrado e pedagógico
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fora da Caixa Section -->
+    <section class="fora-caixa">
+        <div class="container">
+            <h2 class="section-title light">FORA DA CAIXA</h2>
+            
+            <div class="caixa-card">
+                <h3 style="margin-bottom: 20px; color: var(--sun);">PENSAMENTO CRÍTICO E CRIATIVO</h3>
+                <ul class="etiqueta-features">
+                    <li>Independência no pensamento</li>
+                    <li>Dinâmico</li>
+                    <li>Ver o Problema e criar soluções de resolução</li>
+                    <li>Criação de definições própria a partir da leitura dos fenômenos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lema Section -->
+    <section class="lema">
+        <div class="container">
+            <h2 class="section-title light">NOSSO LEMA</h2>
+            
+            <div class="lema-card">
+                <div class="lema-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3 style="margin-bottom: 20px;">EDUCAR COM VERDADE E VALORES</h3>
+                <p style="margin-bottom: 20px; font-size: 1.1rem;">
+                    <strong>Sabedoria que transforma vidas</strong> - mostrando que o colégio forma, não só intelectualmente mas também no carácter.
+                </p>
+                <p style="font-style: italic; margin-top: 20px;">
+                    "Formar para a Vida com Verdades e Amor, base comunitária e cristã. Aprender na verdade crescer com sabedoria."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publicidade Section -->
+    <section class="publicidade">
+        <div class="container">
+            <h2 class="section-title">NOSSA PROPOSTA EDUCACIONAL</h2>
+            
+            <div class="publicidade-card">
+                <h3 style="margin-bottom: 20px; color: var(--primary);">A CRENÇA NO POTENCIAL DE CADA CRIANÇA</h3>
+                <p style="margin-bottom: 20px;">
+                    No Colégio Viritas acreditamos que cada criança é uma semente de futuro. Com um ensino de qualidade, valores sólidos e um ambiente acolhedor, formamos alunos críticos, responsáveis e preparados para transformar o mundo.
+                </p>
+                
+                <ul class="values-list">
+                    <li>Ensino de noções básicas de trabalho doméstico</li>
+                    <li>Educação cristã (ler a bíblia e oração)</li>
+                    <li>Ensino da língua inglesa desde da 1ª classe até a 6ª classe</li>
+                    <li>Educação infantil ao ensino Primário</li>
+                    <li>Professores experientes e dedicados</li>
+                    <li>Educação baseada em valores</li>
+                    <li>Aprendizagem inovadora com foco no sucesso académico e humano</li>
+                </ul>
+                
+                <div style="background: var(--gradient-sun); color: var(--dark); padding: 20px; border-radius: 15px; margin-top: 25px;">
+                    <p style="font-weight: 700; font-size: 1.1rem;">INSCRIÇÕES ABERTAS BREVEMENTE!</p>
+                    <p style="margin-top: 10px; font-weight: 600;">Fique atento às nossas redes sociais para mais informações</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form-section">
+        <div class="container">
+            <h2 class="section-title light">RESERVE SUA VAGA</h2>
+            
+            <div class="form-card">
+                <h3 style="margin-bottom: 20px;">FAÇA PARTE DA NOSSA FAMÍLIA EDUCACIONAL</h3>
+                <p style="margin-bottom: 30px;">Preencha o formulário abaixo para reservar sua vaga e entraremos em contacto consigo.</p>
+                
+                <form id="reserva-form">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="telefone">Número de Telefone</label>
+                        <input type="tel" id="telefone" name="telefone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email (opcional)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensagem">Mensagem (opcional)</label>
+                        <input type="text" id="mensagem" name="mensagem" placeholder="Alguma informação adicional...">
+                    </div>
+                    
+                    <button type="submit" class="submit-button">
+                        <i class="fab fa-whatsapp"></i>
+                        RESERVAR MINHA VAGA
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-seedling"></i>
+                        Colégio<span>Viritas</span>
+                    </div>
+                    <p style="font-size: 1.1rem;">"Educar é a nossa missão, formar é o nosso compromisso"</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3 style="margin-bottom: 20px;">CONTACTE-NOS</h3>
+                    <div class="contact-info">
+                        <p style="margin-bottom: 10px; font-weight: 600;">Localização:</p>
+                        <p>Cumbeza, Distrito de Marracuene</p>
+                        
+                        <p style="margin: 15px 0 10px; font-weight: 600;">Contactos:</p>
+                        <p>Movitel: +258 85 176 0874</p>
+                        <p>Vodacom: +258 85 176 0874</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Colégio Viritas. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Confirmação -->
+    <div class="modal" id="confirmation-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h3 style="margin-bottom: 20px; color: var(--primary);">RESERVA ENVIADA COM SUCESSO!</h3>
+            <p style="margin-bottom: 20px;">Obrigado pelo seu interesse no Colégio Viritas. Em breve entraremos em contacto consigo.</p>
+            <button class="submit-button" id="modal-close-btn">FECHAR</button>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Rolagem automática para o formulário
+        document.getElementById('reservar-vaga-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('form-section').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Contador de visualizações
+        let count = 0;
+        const counterElement = document.createElement('div');
+        counterElement.style.cssText = `
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: var(--primary);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.4);
+        `;
+        counterElement.innerHTML = '👀 <span id="counter">12</span> famílias viram esta oferta hoje';
+        document.body.appendChild(counterElement);
+
+        setInterval(() => {
+            count++;
+            document.getElementById('counter').textContent = 12 + count;
+        }, 30000);
+
+        // Processamento do formulário
+        document.getElementById('reserva-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+            
+            // Criar mensagem para WhatsApp
+            let texto = `Olá! Gostaria de reservar uma vaga no Colégio Viritas.\n\n`;
+            texto += `*Nome:* ${nome}\n`;
+            texto += `*Telefone:* ${telefone}\n`;
+            if (email) texto += `*Email:* ${email}\n`;
+            if (mensagem) texto += `*Mensagem:* ${mensagem}\n\n`;
+            texto += `Aguardo o contacto para mais informações. Obrigado!`;
+            
+            // Codificar para URL
+            const textoCodificado = encodeURIComponent(texto);
+            
+            // Redirecionar para WhatsApp
+            window.open(`https://wa.me/258851760874?text=${textoCodificado}`, '_blank');
+            
+            // Mostrar modal de confirmação
+            document.getElementById('confirmation-modal').style.display = 'flex';
+        });
+
+        // Fechar modal
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('confirmation-modal').style.display = 'none';
+        });
+
+        document.getElementById('modal-close-btn').addEventListener('click', function() {
+            document.getElementById('confirmation-modal').style.display = 'none';
+        });
+
+        // Fechar modal ao clicar fora
+        window.addEventListener('click', function(e) {
+            if (e.target === document.getElementById('confirmation-modal')) {
+                document.getElementById('confirmation-modal').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
